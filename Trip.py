@@ -4,12 +4,8 @@ class Trip:
         self.destination = destination
         self.distance = distance
 
-    def compute_cost(self):
-        raise NotImplementedError
-
     def display_details(self):
         print(f"{self.origin} to {self.destination}, {self.distance} km")
-    
     
 
 class BusTrip(Trip):
@@ -44,9 +40,6 @@ class PlaneTrip(Trip):
 
     def compute_cost(self):
         return self.base_fare * (1 + 0.1)
-    
-    def tripname(self):
-        return (f"Plane Constructor")
 
     def display_details(self):
         print(f"Plane Constructor")
@@ -64,7 +57,6 @@ total_cost = 0
 for trip in trips:
     print(f"Trip Constructor")
     trip.display_details()
-  #  print(f"Trip Cost: {trip.compute_cost()}")
     total_cost += trip.compute_cost()
 
 print(f"Total Cost of trips: {total_cost}")
